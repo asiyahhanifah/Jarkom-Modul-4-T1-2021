@@ -88,7 +88,7 @@ Untuk routing kita harus mendaftarkan atau menambahkan route yang tidak dikenali
 
 ## Topologi CIDR Pada GNS3
 Selanjutnya kami membuat topologi CIDR menggunakan GNS3 seperti yang diminta pada soal shift
-
+![GNS3](https://user-images.githubusercontent.com/73151978/143519254-15e3d097-5ad4-4a78-821f-ea29022c22c2.png)
 
 ## Perhitungan teknik CIDR 
 
