@@ -89,6 +89,7 @@ Untuk routing kita harus mendaftarkan atau menambahkan route yang tidak dikenali
 ## Topologi CIDR Pada GNS3
 Selanjutnya kami membuat topologi CIDR menggunakan GNS3 seperti yang diminta pada soal shift
 
+
 ## Perhitungan teknik CIDR 
 
 - Class A, B, dan C
