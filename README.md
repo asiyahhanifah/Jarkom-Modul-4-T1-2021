@@ -54,41 +54,43 @@ Sehingga didapatkan Broadcast Address dari subnet A1 dengan NID 10.42.20.0 adala
 ## Konfigurasi Pembagian IP dan Subnet Pada CPT
 Setelah melakukan pembagian IP, kami memasukkan hasil pembagian IP dan subnetnya ke dalam CPT. Sebagai contoh pada subnet A1 yang memiliki NID 10.42.20.0. Maka pada router Seastone yang mengarah ke Elena pada lingkup A1 tepatnya di Fa 0/1 nya diberi IP Configuration 10.42.20.1. Sedangkan pada Elena IP addressnya diisi 10.42.20.2 dan IP Gatewaynya diisi IP dari Seastone yaitu 10.42.20.1. Seperti gambar berikut.
 
-(gambar s0)
+![s0](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/s0.png)
 
-(gambar e0)
+![e1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/e1.png)
 
 ## Routing
 Untuk routing kita harus mendaftarkan atau menambahkan route yang tidak dikenali oleh router tersebut, karena tidak berdekatan.
 ### Foosha
-(gambar f1)
+![f1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/f1.png)
 
-(gambar f2)
+![f2](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/f2.png)
 
-(gambar f3)
 
-(gambar f4)
+![f3](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/f3.png)
+
+![f4](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/f4.png)
 
 ### Water 7
-(gambar w1)
+![w1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/w1.png)
 
 ### Pucci
-(gambar p1)
+![p1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/p1.png)
 
 ### Guanhao
-(gambar g1)
+![g1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/g1.png)
 
 ### Oiimo
-(gambar o1)
+![o1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/o1.png)
 
 ### Seastone
-(gambar s1)
+![s1](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/s1.png)
 
 ## 2. CIDR
 
 ## Topologi CIDR Pada GNS3
 Selanjutnya kami membuat topologi CIDR menggunakan GNS3 seperti yang diminta pada soal shift
-![GNS3](https://user-images.githubusercontent.com/73151978/143519254-15e3d097-5ad4-4a78-821f-ea29022c22c2.png)
+
+![GNS3](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/gns3.png)
 
 ## Perhitungan teknik CIDR 
 
@@ -107,11 +109,12 @@ Subnet D1 merupakan hasil penggabungan dari subnet C1 dengan D2. Subnet E1 merup
 ## Subnetting
 Kemudian kami menentukan pembagian IP berdasarkan NID dan netmask menggunakan pohon seperti gambar di bawah. Kemudian dilakukan subnetting dengan menggunakan pohon untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
 
-(gambar tree cidr)
+![pohoncidr](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/pohoncidr.jpg)
 
 Dalam menentukan pembagian IP pada subnetting pohon CIDR ini, kami melakukan pencocokan dengan bantuan tabel berikut.
 
-(tabel subnet)
+![tabel ajaib](https://user-images.githubusercontent.com/73151978/143518674-39973491-0bd6-4fe3-906e-d4599193ad7a.png)
+
 
 ## Hasil perhitungan Network ID, Netmask, Broadcast Address
 Berdasarkan pohon CIDR yang telah dibuat kami mendapatkan pembagian IP dengan melakukan perhitungan. Hasil perhitungan Network ID, Netmask, Broadcast Address dari subnet yang telah ditentukan netmasknya.
@@ -135,7 +138,8 @@ Broadcast		: 10.42.3.255
 
 Sehingga didapatkan Broadcast Address dari subnet A1 dengan NID 10.42.20.0 adalah 10.42.23.255. Dari perhitungan tersebut, kami dapatkan hasil perhitungan Network ID, Netmask, Broadcast Address dari semua subnet pada tabel berikut.
 
-(gambar tabel perhitungan)
+![tabelcidr](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/tabelcidr.png)
+
 
 ## Kendala
 Tidak memiliki cukup waktu untuk melakukan konfigurasi dan routing CIDR pada GNS3
