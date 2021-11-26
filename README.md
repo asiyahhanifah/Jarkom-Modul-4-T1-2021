@@ -35,19 +35,19 @@ melakukan subnetting pohon untuk pembagian IP dengan bantuan tabel subnet terseb
 Dari pohon tersebut akan mendapat pembagian IP dengan melakukan perhitungan.
 Hasil perhitungan Network ID, Netmask, Broadcast Address dari subnet yang telah ditentukan netmasknya.
 Contoh perhitungan: pada subnet A1 yang memiliki Network ID yaitu 10.42.20.0 dengan Netmasknya 255.255.252.0 yang didapatkan berdasarkan pohonnya sesuai tabel di atas. Kemudian untuk menentukan broadcast address kami lakukan perhitungan sebagai berikut.
-
+```
 IP			: 10.42.20.0
 Bit			: 00001010.00101010.000101 00.00000000
 Netmask		: 255.255.252.0
 Bit			: 11111111.11111111.111111 00.00000000
 Invert Netmask	: 00000000.00000000.000000 11.11111111
-
 Kemudian melakukan operasi OR pada IP dan Invert Netmasknya.
 IP			: 00001010.00101010.000101 00.00000000
 Netmask		: 00000000.00000000.000000 11.11111111
 ------------------------------------------------------------------------------------------------ Operasi OR
 Bit Broadcast		: 00001010.00101010.000101 11.11111111
 Broadcast		: 10.42.23.255
+```
 
 Sehingga didapatkan Broadcast Address dari subnet A1 dengan NID 10.42.20.0 adalah 10.42.23.255. Dari perhitungan tersebut, kami dapatkan hasil perhitungan Network ID, Netmask, Broadcast Address dari semua subnet pada tabel berikut.
 
