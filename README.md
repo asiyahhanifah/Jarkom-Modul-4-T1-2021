@@ -140,7 +140,151 @@ Sehingga didapatkan Broadcast Address dari subnet A1 dengan NID 10.42.20.0 adala
 
 ![fix tabel cidr](https://user-images.githubusercontent.com/73151978/143673772-a6355bc0-ff67-43a1-a77c-84519b5638db.png)
 
+## Konfigurasi Pembagian IP dan Subnet Pada GNS3
+Setelah melakukan pembagian IP, kami memasukkan hasil pembagian IP dan subnetnya ke dalam GNS3 untuk caranya cukup mirip dengan pengimplementasian konfigurasi pada CPT. Bedanya pada GNS3 diberi pada eth 0, eth1, eth2, dan lain-lain sesuai dengan subnet. Tidak lupa juga diberi gateway untuk alur jalannya. Berikut ini contoh konfigurasi pada GNS3 di Foosha dan Water 7 untuk subnet A8.
 
+1. Foosha
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 10.42.64.1
+	netmask 255.255.252.0
+	broadcast 10.42.67.255
+
+auto eth2
+iface eth2 inet static
+	address 10.42.72.1
+	netmask 255.255.255.252
+	broadcast 10.42.72.3
+
+
+auto eth3
+iface eth3 inet static
+	address 10.42.68.1
+	netmask 255.255.255.252
+	broadcast 10.42.68.3
+
+auto eth4
+iface eth4 inet static
+	address 10.42.20.1
+	netmask 255.255.255.252
+	broadcast 10.42.20.3
+```
+2. Water 7
+```
+auto eth0
+iface eth0 inet static
+	address 10.42.68.2
+	netmask 255.255.255.252
+	broadcast 10.42.68.3
+        gateway 10.42.68.1
+
+auto eth1
+iface eth1 inet static
+	address 10.42.48.1
+	netmask 255.255.252.0
+	broadcast 10.42.67.255
+        gateway 10.42.68.1
+
+auto eth2
+iface eth2 inet static
+	address 10.42.52.1
+	netmask 255.255.255.252
+	broadcast 10.42.52.3
+        gateway 10.42.68.1
+
+```
+## Routing
+Untuk routing kita harus mendaftarkan atau menambahkan route yang tidak dikenali oleh router tersebut, karena tidak berdekatan pada GNS3.
+
+1. Foosha
+```
+# masquerade dengan netmask terbesar /17
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.42.0.0/17
+
+# ke a11 JIPANGU
+route add -net 10.42.40.0 netmask 255.255.255.128 gw 10.42.68.2
+
+# ke a13 client BLUENO
+route add -net 10.42.64.0 netmask 255.255.252.0 gw 10.42.64.2
+
+# ke a12 client CIPHER
+route add -net 10.42.48.0 netmask 255.255.252.0 gw 10.42.68.2
+
+# ke a9 PUCCI
+route add -net 10.42.52.0 netmask 255.255.255.252 gw 10.42.68.2
+
+# ke a10 CALMBELT dan COURT YARD
+route add -net 10.42.32.0 netmask 255.255.248.0 gw 10.42.68.2
+
+# ke a8 WATER7
+route add -net 10.42.68.0 netmask 255.255.255.252 gw 10.42.68.2
+
+# ke a5 JORGE
+route add -net 10.42.26.0 netmask 255.255.255.240 gw 10.42.20.2
+
+# ke a3 OIIMO
+route add -net 10.42.8.0 netmask 255.255.255.252 gw 10.42.20.2
+
+#ke a6 JABRA
+route add -net 10.42.16.0 netmask 255.255.252.0 gw 10.42.20.2
+
+#ke DORIKI
+route add -net 10.42.72.0 netmask 255.255.255.252 gw 10.42.72.2
+
+#ke GUANHAO
+route add -net 10.42.20.0 netmask 255.255.255.252 gw 10.42.20.2
+
+# ke a4 MAINGATE
+route add -net 10.42.24.0 netmask 255.255.254.0 gw 10.42.20.2
+
+# ke a15 FUKUROU
+route add -net 10.42.8.4 netmask 255.255.255.252 gw 10.42.20.2
+
+# ke a2 ENIESLOBBY
+route add -net 10.42.4.0 netmask 255.255.255.0 gw 10.42.20.2
+
+# a1 ELENA
+route add -net 10.42.0.0 netmask 255.255.252.0 gw 10.42.20.2
+
+```
+b. Water7
+```
+#ke a11 JIPANGU
+route add -net 10.42.40.0 netmask 255.255.255.128 gw 10.42.52.2
+
+#ke a10 CALMBELT dan COURT YARD
+route add -net 10.42.32.0 netmask 255.255.248.0 gw 10.42.52.2
+```
+c. Guanhao
+```
+# ke a15 FUKUROU
+route add -net 10.42.8.4 netmask 255.255.255.252 gw 10.42.8.2
+
+# ke a5 JORGE
+route add -net 10.42.26.0 netmask 255.255.254.0 gw 10.42.24.2
+
+# ke a1 ELENA
+route add -net 10.42.0.0 netmask 255.255.252.0 gw 10.42.8.2
+
+# ke a2 ENIESLOBBY
+route add -net 10.42.4.0 netmask 255.255.255.0 gw 10.42.8.2
+```
+d. ke a1 Elena
+```
+ke a1 ELENA
+route add -net 10.42.0.0 netmask 255.255.252.0 gw 10.42.4.2
+```
+
+## Testing Routing
+1. Jabra ke Jipangu
+![jj](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/jj.png)
+
+2. Jabra ke Google
+![jg](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/jg.png)
 ## Kendala
 Tidak memiliki cukup waktu untuk melakukan konfigurasi dan routing CIDR pada GNS3
 
