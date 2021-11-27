@@ -287,7 +287,7 @@ route add -net 10.42.0.0 netmask 255.255.252.0 gw 10.42.4.2
 ![jg](https://github.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/blob/main/images/jg.png?raw=true)
 
 3. Elena ke Pucci dan Elena ke Google
-![jg](https://github.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/blob/main/images/jg.png?raw=true)
+![epg](https://github.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/blob/main/images/epg.png?raw=true)
 ## Kendala
 Tidak memiliki cukup waktu untuk melakukan konfigurasi dan routing CIDR pada GNS3
 
