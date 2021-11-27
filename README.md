@@ -109,7 +109,7 @@ Subnet D1 merupakan hasil penggabungan dari subnet C1 dengan D2. Subnet E1 merup
 ## Subnetting
 Kemudian kami menentukan pembagian IP berdasarkan NID dan netmask menggunakan pohon seperti gambar di bawah. Kemudian dilakukan subnetting dengan menggunakan pohon untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
 
-![pohoncidr](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/pohoncidr.jpg)
+![tree fix](https://user-images.githubusercontent.com/73151978/143673918-58e928be-0e1e-475d-b923-f17e61dbd3c1.png)
 
 Dalam menentukan pembagian IP pada subnetting pohon CIDR ini, kami melakukan pencocokan dengan bantuan tabel berikut.
 
@@ -138,7 +138,7 @@ Broadcast		: 10.42.3.255
 
 Sehingga didapatkan Broadcast Address dari subnet A1 dengan NID 10.42.20.0 adalah 10.42.23.255. Dari perhitungan tersebut, kami dapatkan hasil perhitungan Network ID, Netmask, Broadcast Address dari semua subnet pada tabel berikut.
 
-![tabelcidr](https://raw.githubusercontent.com/asiyahhanifah/Jarkom-Modul-4-T1-2021/main/images/tabelcidr.png)
+![fix tabel cidr](https://user-images.githubusercontent.com/73151978/143673772-a6355bc0-ff67-43a1-a77c-84519b5638db.png)
 
 
 ## Kendala
